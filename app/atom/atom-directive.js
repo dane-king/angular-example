@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('techEval.evaluate')
-    .directive('rating', function () {
+angular.module('code.guide')
+    .directive('atom', function () {
         var link =function(scope, element, attrs) {
             attrs.$observe('name', function(name) {
                 scope.min=0;
@@ -12,7 +12,7 @@ angular.module('techEval.evaluate')
         return {
             restrict: 'E',
             replace:false,
-            templateUrl:'rating/rating.html' ,
+            templateUrl:'atom/atom.html' ,
             link:link
         };
     });

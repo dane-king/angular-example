@@ -1,7 +1,7 @@
 'use strict';
 
 describe('techEval.version module', function() {
-  beforeEach(module('techEval.version'));
+  beforeEach(module('code.version'));
 
   describe('app-version directive', function() {
     it('should print current version', function() {

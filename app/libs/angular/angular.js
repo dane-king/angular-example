@@ -10039,7 +10039,7 @@ function $InterpolateProvider() {
      *
      * `$interpolate` takes an optional fourth argument, `allOrNothing`. If `allOrNothing` is
      * `true`, the interpolation function will return `undefined` unless all embedded expressions
-     * evaluate to a value other than `undefined`.
+     * guide to a value other than `undefined`.
      *
      * ```js
      *   var $interpolate = ...; // injected
@@ -10103,11 +10103,11 @@ function $InterpolateProvider() {
      *    trustedContext)} before returning it.  Refer to the {@link ng.$sce $sce} service that
      *    provides Strict Contextual Escaping for details.
      * @param {boolean=} allOrNothing if `true`, then the returned function returns undefined
-     *    unless all embedded expressions evaluate to a value other than `undefined`.
+     *    unless all embedded expressions guide to a value other than `undefined`.
      * @returns {function(context)} an interpolation function which is used to compute the
      *    interpolated string. The function has these parameters:
      *
-     * - `context`: evaluation context for all expressions embedded in the interpolated text
+     * - `context`: guide context for all expressions embedded in the interpolated text
      */
     function $interpolate(text, mustHaveExpression, trustedContext, allOrNothing) {
       allOrNothing = !!allOrNothing;
@@ -12511,7 +12511,7 @@ function isPossiblyDangerousMemberName(name) {
 /**
  * Implementation of the "Black Hole" variant from:
  * - http://jsperf.com/angularjs-parse-getter/4
- * - http://jsperf.com/path-evaluation-simplified/7
+ * - http://jsperf.com/path-guide-simplified/7
  */
 function cspSafeGetterFn(key0, key1, key2, key3, key4, fullExp, expensiveChecks) {
   ensureSafeMemberName(key0, fullExp);
@@ -14052,7 +14052,7 @@ function $RootScopeProvider() {
        *
        *
        * @param {string|function(scope)} obj Evaluated as {@link guide/expression expression}. The
-       *    expression value should evaluate to an object or an array which is observed on each
+       *    expression value should guide to an object or an array which is observed on each
        *    {@link ng.$rootScope.Scope#$digest $digest} cycle. Any shallow change within the
        *    collection will trigger a call to the `listener`.
        *
@@ -14477,7 +14477,7 @@ function $RootScopeProvider() {
        * The `$evalAsync` makes no guarantees as to when the `expression` will be executed, only
        * that:
        *
-       *   - it will execute after the function that scheduled the evaluation (preferably before DOM
+       *   - it will execute after the function that scheduled the guide (preferably before DOM
        *     rendering).
        *   - at least one {@link ng.$rootScope.Scope#$digest $digest cycle} will be performed after
        *     `expression` execution.
@@ -20413,7 +20413,7 @@ var ngValueDirective = function() {
  *
  *
  * @element ANY
- * @param {expression} ngBind {@link guide/expression Expression} to evaluate.
+ * @param {expression} ngBind {@link guide/expression Expression} to guide.
  *
  * @example
  * Enter a name in the Live Preview text box; the greeting below the text box changes instantly.
@@ -20546,7 +20546,7 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
  * will have an exception (instead of an exploit.)
  *
  * @element ANY
- * @param {expression} ngBindHtml {@link guide/expression Expression} to evaluate.
+ * @param {expression} ngBindHtml {@link guide/expression Expression} to guide.
  *
  * @example
 
@@ -20588,7 +20588,7 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
         $compile.$$addBindingInfo(element, attr.ngBindHtml);
 
         scope.$watch(ngBindHtmlWatch, function ngBindHtmlWatchAction() {
-          // we re-evaluate the expr because we want a TrustedValueHolderType
+          // we re-guide the expr because we want a TrustedValueHolderType
           // for $sce, not a string
           element.html($sce.getTrustedHtml(ngBindHtmlGetter(scope)) || '');
         });
@@ -20619,7 +20619,7 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
  * Note, this directive requires `ngModel` to be present.
  *
  * @element input
- * @param {expression} ngChange {@link guide/expression Expression} to evaluate upon change
+ * @param {expression} ngChange {@link guide/expression Expression} to guide upon change
  * in input value.
  *
  * @example
@@ -20646,7 +20646,7 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
  *     var counter = element(by.binding('counter'));
  *     var debug = element(by.binding('confirmed'));
  *
- *     it('should evaluate the expression if changing from view', function() {
+ *     it('should guide the expression if changing from view', function() {
  *       expect(counter.getText()).toContain('0');
  *
  *       element(by.id('ng-change-example1')).click();
@@ -20655,7 +20655,7 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
  *       expect(debug.getText()).toContain('true');
  *     });
  *
- *     it('should not evaluate the expression if changing from model', function() {
+ *     it('should not guide the expression if changing from model', function() {
  *       element(by.id('ng-change-example2')).click();
 
  *       expect(counter.getText()).toContain('0');
@@ -20821,7 +20821,7 @@ function classDirective(name, selector) {
  *
  * @element ANY
  * @param {expression} ngClass {@link guide/expression Expression} to eval. The result
- *   of the evaluation can be a string representing space delimited class
+ *   of the guide can be a string representing space delimited class
  *   names, an array, or a map of class names to boolean values. In the case of a map, the
  *   names of the properties whose values are truthy will be added as css classes to the
  *   element.
@@ -20950,7 +20950,7 @@ var ngClassDirective = classDirective('', true);
  *
  * @element ANY
  * @param {expression} ngClassOdd {@link guide/expression Expression} to eval. The result
- *   of the evaluation can be a string representing space delimited class names or an array.
+ *   of the guide can be a string representing space delimited class names or an array.
  *
  * @example
    <example>
@@ -20998,7 +20998,7 @@ var ngClassOddDirective = classDirective('Odd', 0);
  *
  * @element ANY
  * @param {expression} ngClassEven {@link guide/expression Expression} to eval. The
- *   result of the evaluation can be a string representing space delimited class names or an array.
+ *   result of the guide can be a string representing space delimited class names or an array.
  *
  * @example
    <example>
@@ -21347,7 +21347,7 @@ var ngControllerDirective = [function() {
  *
  * AngularJS uses `Function(string)` generated functions as a speed optimization. Applying the `ngCsp`
  * directive will cause Angular to use CSP compatibility mode. When this mode is on AngularJS will
- * evaluate all expressions up to 30% slower than in non-CSP mode, but no security violations will
+ * guide all expressions up to 30% slower than in non-CSP mode, but no security violations will
  * be raised.
  *
  * CSP forbids JavaScript to inline stylesheet rules. In non CSP mode Angular automatically
@@ -21358,7 +21358,7 @@ var ngControllerDirective = [function() {
  * autodetection however triggers a CSP error to be logged in the console:
  *
  * ```
- * Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of
+ * Refused to guide a string as JavaScript because 'unsafe-eval' is not an allowed source of
  * script in the following Content Security Policy directive: "default-src 'self'". Note that
  * 'script-src' was not explicitly set, so 'default-src' is used as a fallback.
  * ```
@@ -21482,7 +21482,7 @@ var ngControllerDirective = [function() {
             expectNoErrors();
           });
 
-          it('should evaluate expressions', function() {
+          it('should guide expressions', function() {
             expect(counter.getText()).toEqual('0');
             incBtn.click();
             expect(counter.getText()).toEqual('1');
@@ -21512,7 +21512,7 @@ var ngControllerDirective = [function() {
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngClick {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngClick {@link guide/expression Expression} to guide upon
  * click. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21587,7 +21587,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngDblclick {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngDblclick {@link guide/expression Expression} to guide upon
  * a dblclick. (The Event object is available as `$event`)
  *
  * @example
@@ -21611,7 +21611,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngMousedown {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngMousedown {@link guide/expression Expression} to guide upon
  * mousedown. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21635,7 +21635,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngMouseup {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngMouseup {@link guide/expression Expression} to guide upon
  * mouseup. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21658,7 +21658,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngMouseover {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngMouseover {@link guide/expression Expression} to guide upon
  * mouseover. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21682,7 +21682,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngMouseenter {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngMouseenter {@link guide/expression Expression} to guide upon
  * mouseenter. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21706,7 +21706,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngMouseleave {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngMouseleave {@link guide/expression Expression} to guide upon
  * mouseleave. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21730,7 +21730,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngMousemove {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngMousemove {@link guide/expression Expression} to guide upon
  * mousemove. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21754,7 +21754,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngKeydown {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngKeydown {@link guide/expression Expression} to guide upon
  * keydown. (Event object is available as `$event` and can be interrogated for keyCode, altKey, etc.)
  *
  * @example
@@ -21776,7 +21776,7 @@ forEach(
  *
  * @element ANY
  * @priority 0
- * @param {expression} ngKeyup {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngKeyup {@link guide/expression Expression} to guide upon
  * keyup. (Event object is available as `$event` and can be interrogated for keyCode, altKey, etc.)
  *
  * @example
@@ -21802,7 +21802,7 @@ forEach(
  * Specify custom behavior on keypress event.
  *
  * @element ANY
- * @param {expression} ngKeypress {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngKeypress {@link guide/expression Expression} to guide upon
  * keypress. ({@link guide/expression#-event- Event object is available as `$event`}
  * and can be interrogated for keyCode, altKey, etc.)
  *
@@ -21892,7 +21892,7 @@ forEach(
  *
  * @element window, input, select, textarea, a
  * @priority 0
- * @param {expression} ngFocus {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngFocus {@link guide/expression Expression} to guide upon
  * focus. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21916,7 +21916,7 @@ forEach(
  *
  * @element window, input, select, textarea, a
  * @priority 0
- * @param {expression} ngBlur {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngBlur {@link guide/expression Expression} to guide upon
  * blur. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21932,7 +21932,7 @@ forEach(
  *
  * @element window, input, select, textarea, a
  * @priority 0
- * @param {expression} ngCopy {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngCopy {@link guide/expression Expression} to guide upon
  * copy. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21953,7 +21953,7 @@ forEach(
  *
  * @element window, input, select, textarea, a
  * @priority 0
- * @param {expression} ngCut {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngCut {@link guide/expression Expression} to guide upon
  * cut. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -21974,7 +21974,7 @@ forEach(
  *
  * @element window, input, select, textarea, a
  * @priority 0
- * @param {expression} ngPaste {@link guide/expression Expression} to evaluate upon
+ * @param {expression} ngPaste {@link guide/expression Expression} to guide upon
  * paste. ({@link guide/expression#-event- Event object is available as `$event`})
  *
  * @example
@@ -22143,7 +22143,7 @@ var ngIfDirective = ['$animate', function($animate) {
  *
  * @param {string} ngInclude|src angular expression evaluating to URL. If the source is a string constant,
  *                 make sure you wrap it in **single** quotes, e.g. `src="'myPartialTemplate.html'"`.
- * @param {string=} onload Expression to evaluate when a new partial is loaded.
+ * @param {string=} onload Expression to guide when a new partial is loaded.
  *
  * @param {string=} autoscroll Whether `ngInclude` should call {@link ng.$anchorScroll
  *                  $anchorScroll} to scroll the viewport after the content is loaded.
@@ -22410,7 +22410,7 @@ var ngIncludeFillContentDirective = ['$compile',
  * @restrict AC
  *
  * @description
- * The `ngInit` directive allows you to evaluate an expression in the
+ * The `ngInit` directive allows you to guide an expression in the
  * current scope.
  *
  * <div class="alert alert-error">
@@ -24306,7 +24306,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  *   </footer>
  * ```
  *
- * And with an input of {@type ['A','B']} for the items variable in the example above, the output will evaluate to:
+ * And with an input of {@type ['A','B']} for the items variable in the example above, the output will guide to:
  * ```html
  *   <header>
  *     Header A

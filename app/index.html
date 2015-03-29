@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="techEval" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="techEval" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="techEval" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="techEval" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="code" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="code" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="code" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="code" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,7 @@
 </head>
 <body>
   <ul class="menu">
-    <li><a ui-sref="evaluate">Evaluate</a></li>
+    <li><a ui-sref="atoms">Atoms</a></li>
   </ul>
 
   <!--[if lt IE 7]>
@@ -25,17 +25,15 @@
 
   <div ui-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
-
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
   <script src="libs/angular/angular.js"></script>
   <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="app.js"></script>
-  <script src="evaluation/evaluate.js"></script>
-  <script src="rating/ratingService.js"></script>
-  <script src="rating/rating-directive.js"></script>
+  <script src="guide/guide.js"></script>
+  <script src="atom/atomService.js"></script>
+  <script src="atom/atom-directive.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

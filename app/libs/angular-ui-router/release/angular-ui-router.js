@@ -3645,7 +3645,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * *Note: To revert back to old [`$anchorScroll`](http://docs.angularjs.org/api/ng.$anchorScroll)
  * functionality, call `$uiViewScrollProvider.useAnchorScroll()`.*
  *
- * @param {string=} onload Expression to evaluate whenever the view updates.
+ * @param {string=} onload Expression to guide whenever the view updates.
  * 
  * @example
  * A view can be unnamed or named. 

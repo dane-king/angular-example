@@ -6,24 +6,24 @@ describe('tech eval app', function () {
 
     browser.get('index.html');
 
-    it('should automatically redirect to /evaluate when location hash/fragment is empty', function () {
-        expect(browser.getLocationAbsUrl()).toMatch("/evaluate");
+    it('should automatically redirect to /atoms when location hash/fragment is empty', function () {
+        expect(browser.getLocationAbsUrl()).toMatch("/atoms");
     });
 
 
     describe('evaluate', function () {
 
         beforeEach(function () {
-            browser.get('index.html#/evaluate');
+            browser.get('index.html#/atoms');
         });
 
 
-        it('should render evaluate when user navigates to /evaluate', function () {
+        it('should render guide when user navigates to /guide', function () {
             expect(element.all(by.css('[ui-view] h2')).first().getText()).
-                toMatch(/Evaluations/);
+                toMatch(/Atoms/);
         });
 
-        it('should render display a list of ratings /evaluate', function () {
+        it('should render display a list of ratings /atoms', function () {
             expect(element.all(by.repeater('r in ratings')).count()).toEqual(2);
         });
     });

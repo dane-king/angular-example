@@ -1,7 +1,7 @@
 'use strict';
 
 describe('techEval.version module', function() {
-  beforeEach(module('techEval.version'));
+  beforeEach(module('code.version'));
 
   describe('interpolate filter', function() {
     beforeEach(module(function($provide) {

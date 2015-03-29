@@ -1,18 +1,18 @@
 'use strict';
 
 
-describe('techEval.evaluate module', function () {
+describe('code.guide module', function () {
     var expect=chai.expect;
     var $controller;
-    var ratingService;
+    var atomService;
     var sandbox
 
-    beforeEach(module('techEval.evaluate'));
+    beforeEach(module('code.guide'));
 
 
-    beforeEach(inject(function (_$controller_, _ratingService_) {
+    beforeEach(inject(function (_$controller_, _atomService_) {
         $controller = _$controller_;
-        ratingService = _ratingService_;
+        atomService = _atomService_;
         sandbox=sinon.sandbox.create();
 
     }));
@@ -25,26 +25,26 @@ describe('techEval.evaluate module', function () {
     var createController = function () {
         var $scope = {};
         //change to stub when calling a web service
-        sandbox.spy(ratingService,'ratings');
+        sandbox.spy(atomService,'ratings');
 
-        sandbox.spy(ratingService,'ranges');
+        sandbox.spy(atomService,'ranges');
 
-        $controller('EvaluateCtrl', {$scope: $scope});
+        $controller('AtomCtrl', {$scope: $scope});
         return $scope;
     };
-    describe('evaluate controller', function() {
+    describe('guide controller', function() {
         it('create ranges',function(){
             var $scope =createController();
             $scope.ranges;
-            expect(ratingService.ranges.called).to.be.true;
+            expect(atomService.ranges.called).to.be.true;
 
         })
     });
-    describe('evaluate controller', function() {
+    describe('guide controller', function() {
         it('create ratings',function(){
             var $scope =createController();
             $scope.ratings;
-            expect(ratingService.ratings.called).to.be.true;
+            expect(atomService.ratings.called).to.be.true;
 
         })
     });

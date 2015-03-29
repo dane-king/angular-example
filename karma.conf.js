@@ -13,9 +13,9 @@ module.exports = function(config) {
           'app/libs/angular-ui-router/release/angular-ui-router.js',
           'app/libs/angular-mocks/angular-mocks.js',
           'app/components/**/*.js',
-          'app/evaluation/**/*.js',
-          'app/rating/**/*.js',
-          'app/rating/**/*.html',
+          'app/guide/**/*.js',
+          'app/atom/**/*.js',
+          'app/atom/**/*.html',
           'tests/**/*.js'
       ],
 

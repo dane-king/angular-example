@@ -1,13 +1,13 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('techEval', [
+angular.module('code', [
   'ui.router',
-  'techEval.evaluate',
-  'techEval.version'
+  'code.guide',
+  'code.version'
 ]).
 config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/evaluate')
+        $urlRouterProvider.otherwise('/atoms')
 
 }]);
 

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('techEval.evaluate')
-.service('ratingService',function(){
+angular.module('code.guide')
+.service('atomService',function(){
         var ratings=function(){
             return [{id:1, name:'xxxx',score:10,comments:'yyyy'},{id:1, name:'tttt',score:8,comments:'ssss'}]
         };
