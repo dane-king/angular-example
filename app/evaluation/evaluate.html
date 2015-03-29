@@ -1,0 +1,12 @@
+<h2>Evaluations</h2>
+<ul>
+    {{ratings}}
+    {{test}}
+    <li ng-repeat="r in ratings track by $index">
+        <!--<rating name="{{r.name}}"  />-->
+        <rating stuff="stuff" name="{{r.name}}">
+    </li>
+
+</ul>
+<input ng-model="test" />
+
