@@ -1,20 +1,21 @@
 'use strict';
 
 angular.module('code.guide', ['ui.router'])
-
     .config(['$stateProvider', function ($stateProvider) {
-        $stateProvider
-        .state('atoms', {
+        var guideState = {
+            url: '/guide',
+            templateUrl: 'guide/guide.html',
+            controller:'GuideCtrl'
+        };
+        var atomState = {
             url: '/atoms',
             templateUrl: 'guide/guide.html',
             controller:'AtomCtrl'
-        })
+        };
+        $stateProvider
+            .state('guide',guideState)
+            .state('atoms',atomState)
     }])
 
-    .controller('AtomCtrl', ['$scope','atomService',function ($scope,atomService) {
-        $scope.ratings=atomService.ratings();
-        $scope.ranges=atomService.ranges();
-
-    }]);
 
 
