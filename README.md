@@ -1,4 +1,4 @@
-#Install test frameworks
+#Install test frameworks globally
 
 + sudo npm install -g mocha
 + sudo npm install -g karma
